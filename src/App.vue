@@ -1,30 +1,68 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref, computed } from 'vue';
+const questions = ref([
+  {
+    question: 'What is Vue JS',
+    answer: 0,
+    options: [
+      'A front end framework',
+      'A library',
+      'A ice cream maker'
+    ],
+    selected: null
+  },
+  {
+    question: 'What is Vuex',
+    answer: 2,
+    options: [
+      'The letter X after the word Vue',
+      'A cheese stick',
+      'State management library'
+    ],
+    selected: null
+  },
+  {
+    question: 'What is Vue Router Used For?',
+    answer: 1,
+    options: [
+      'An alternative route to route 64',
+      'A routing library for Vue JS',
+      'A drink from sonic'
+    ],
+    selected: null
+  }
+])
+
+const quizCompleted = ref(false)
+const currentQuestion = ref(0)
+const score = computed(() => {
+  let value = 0
+  questions.value.map(q => {
+    if (q.selected == q.answer) {
+      value++
+    }
+  })
+  return value
+})
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+<h1>
+Hello World
+</h1>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style >
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Monserrat', sans-serif;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+body {
+  background-color: #271c36;
+  color: #fff;
 }
 </style>

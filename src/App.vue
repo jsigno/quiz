@@ -30,6 +30,16 @@ const questions = ref([
       'A drink from sonic'
     ],
     selected: null
+  },
+  {
+    question: 'is Vue hard to learn',
+    answer: 0,
+    options: [
+      'Nahhh, just read the docs',
+      'YES PLS SAVE ME',
+      'yes refer to option 2'
+    ],
+    selected: null
   }
   
 ])
